@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/vue@3" defer></script>
+    <script src="vue.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="shop.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Shop</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <header class="header-chekout">
+        <nav class="navbar">
+          <div class="logo">
+            <img src="./img/logga-removebg-preview1.png" alt="logo" />
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="shop.html" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a href="customers.html" class="nav-link">Our Customers</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html#aboutUs-h2" class="nav-link">About us</a>
+              <ul class="submenu">
+                <li class="sub">
+                  <a href="./michelle/michelle.html" class="sub-link"
+                    >Michelle</a
+                  >
+                </li>
+                <li class="sub">
+                  <a href="erik.html" class="sub-link"
+                    >Erik <span class="utfyllnad">...</span></a
+                  >
+                </li>
+                <li class="sub">
+                  <a href="lindaE.html" class="sub-link">Linda E.</a>
+                </li>
+                <li class="sub">
+                  <a href="lindaR.html" class="sub-link">Linda R.</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+            <li class="shopping_cart shopping_cart_standard grow">
+              <span class="material-symbols-outlined" @click="toggle"
+                >shopping_cart</span
+              >
+              <span class="icon-badge"> {{ itemsInCart }} </span>
+            </li>
+          </ul>
+          <div class="mobile-menu">
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <div class="shopping_cart shopping_cart_mobile grow">
+              <span class="material-symbols-outlined" @click="toggle"
+                >shopping_cart</span
+              >
+              <span class="icon-badge"> {{ itemsInCart }} </span>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="main-shop"></div>
+      <div class="shop-container">
+        <h1 class="shop-h1">
+          It's time to find the perfect watch for
+          <span class="shop-h1-you">you</span>.
+        </h1>
+        <div class="shop-para">
+          <p>
+            Check out our handmade watches selection for the very best in unique
+            or custom, handmade pieces from our wrist watches shop. Quality
+            automatic watches are products of great effort, dedication, accuracy
+            and precision combined with a set of complex processes to achieve a
+            standard that is far more advanced than the old days. Because of
+            this, fine craftsmanship is one factor that set apart one watch
+            brand from the others.
+          </p>
+          <p>We can offer you:</p>
+          <ul class="shop-list">
+            <li>
+              Material of at least (316L) stainless steel (titanium of ceramic)
+              with PVD coating
+            </li>
+            <li>Scratchproof sapphire glass (for frequent use)</li>
+            <li>10 ATM water resistance</li>
+            <li>
+              Good quartz movement (Miyota, Seiko, Ronda) or a certified
+              mechanical movement
+            </li>
+          </ul>
+        </div>
+
+        <div class="readMoreButton2">
+          <button class="readMore2">Read More</button>
+        </div>
+
+        <!-- Shop -->
+
+        <div class="watches-container">
+          <div class="watch-div" v-for="aWatch in watches">
+            <div class="watch">
+              <div class="watchImage">
+                <img :src="aWatch.image" alt="Watch image" />
+              </div>
+              <div class="watchDetails">
+                <h2 v-text="aWatch.title"></h2>
+                <p v-text="aWatch.description"></p>
+                <p class="watch-price">€ {{aWatch.price}}</p>
+
+                <button
+                  class="shop-btn addToCartBtn"
+                  v-on:click="addToCart(aWatch)"
+                  :disabled="!isHidden"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="addItemMsg">
+          <p>{{itemName}} has been added to your cart!</p>
+        </div>
+
+        <!-- Checkout -->
+        <div v-if="!isHidden" class="checkout-container">
+          <span class="close-icon material-symbols-outlined" @click="toggle">
+            close
+          </span>
+          <span v-show="watchCart.length == 0" id="emptyCart"
+            >Your Shopping Cart is Empty</span
+          >
+          <div v-show="watchCart.length > 0" class="checkout-watches">
+            <div v-for="aWatch in watchCart">
+              <div class="checkout-watch">
+                <div class="checkout-watchImage">
+                  <img :src="aWatch.image" alt="Watch image" />
+                </div>
+                <div class="checkout-watchDetails">
+                  <h2 class="watchTitle" v-text="aWatch.title"></h2>
+                  <p v-text="aWatch.description"></p>
+                  <label for="nrOfAItem">Items: </label>
+                  <input
+                    type="number"
+                    v-model="aWatch.qty"
+                    id="nrOfAItem"
+                    @change="setOne(aWatch)"
+                  />
+
+                  <p class="checkout-watch-price">€ {{aWatch.price}}</p>
+                </div>
+                <button
+                  class="shop-btn checkout-btn"
+                  id="removeBtn"
+                  @click="removeFromCart(aWatch)"
+                  :enabled="aWatch.addedToCart"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+          <div v-show="watchCart.length > 0" class="checkOutBtn-container">
+            <div class="btn-div-checkout">
+              <div><p>Summary</p></div>
+              <div class="totalAndButton">
+                <div><p>Total: € {{cartTotal}}</p></div>
+                <button class="shop-btn checkout-btn" @click="emtpyArray">
+                  Checkout
+                </button>
+              </div>
+            </div>
+          </div>
+          <div v-show="watchCart.length > 0" class="totalAndButton-mobile">
+            <div><p>Total: € {{cartTotal}}</p></div>
+            <button class="shop-btn checkout-btn" @click="emtpyArray">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-companyInfo">
+            <h1>Watch Out</h1>
+            <p>Klockmakargatan 12</p>
+            <p>701 11 Örebro</p>
+            <p>SWEDEN</p>
+          </div>
+          <div class="media-links">
+            <h2 id="footer-h2">Connect With Us</h2>
+            <span class="link"
+              ><a href="https://twitter.com/"
+                ><img
+                  class="media-img"
+                  src="img/icons8-twitter-100.png"
+                  alt="twitterlink"
+              /></a>
+            </span>
+
+            <span class="link"
+              ><a href="https://www.facebook.com/"
+                ><img
+                  class="media-img"
+                  src="img/icons8-facebook-100.png"
+                  alt="facebooklink"
+              /></a>
+            </span>
+
+            <span class="link"
+              ><a href="https://www.instagram.com/"
+                ><img
+                  class="media-img"
+                  src="img/icons8-instagram-100.png"
+                  alt="instagramlink"
+              /></a>
+            </span>
+
+            <span class="link"
+              ><a href="https://www.linkedin.com/"
+                ><img
+                  class="media-img"
+                  src="img/icons8-linkedin-100.png"
+                  alt="linkedinlink"
+              /></a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

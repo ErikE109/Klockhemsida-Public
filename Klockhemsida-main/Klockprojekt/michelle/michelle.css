@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,300&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e3e3e6;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+section {
+  text-align: center;
+}
+
+.m-title {
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+
+/*Falling clocks*/
+
+.m-falling-clocks {
+  text-align: center;
+}
+
+.m-falling-clocks span {
+  display: inline-block;
+  opacity: 0;
+  width: 80px;
+  height: 80px;
+  background: url("./img/clock-falling.png");
+  background-size: cover;
+  margin: -344px 40px 55px 0;
+  animation: falling 10s infinite linear;
+  z-index: -1;
+}
+
+/* .m-falling-clocks span:nth-child(1) {
+  animation-delay: 0s;
+} */
+.m-falling-clocks span:nth-child(2) {
+  animation-delay: 2s;
+}
+.m-falling-clocks span:nth-child(3) {
+  animation-delay: 9s;
+}
+.m-falling-clocks span:nth-child(4) {
+  animation-delay: 5s;
+}
+.m-falling-clocks span:nth-child(5) {
+  animation-delay: 5s;
+}
+
+.m-falling-clocks span:nth-child(6) {
+  animation-delay: 7s;
+}
+.m-falling-clocks span:nth-child(7) {
+  animation-delay: 1s;
+}
+.m-falling-clocks span:nth-child(8) {
+  animation-delay: 2s;
+}
+
+@keyframes falling {
+  0% {
+    width: 80px;
+    height: 80px;
+    opacity: 0.5;
+    transform: translate(0, 0);
+  }
+  70% {
+    width: 80px;
+    height: 80px;
+    opacity: 0.5;
+    transform: translate(0, 500px);
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transform: translate(0, 700px);
+  }
+}
+
+.m-intro-text h1 {
+  font-family: "Raleway", sans-serif;
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  2%,
+  35%,
+  39%,
+  41%,
+  100% {
+    opacity: 1;
+  }
+  1%,
+  3%,
+  34%,
+  36%,
+  38%,
+  40% {
+    opacity: 0;
+  }
+}
+
+/*INTRO*/
+
+.m-intro {
+  height: 110vh;
+}
+
+.m-intro-textCompany {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+.m-profile-img {
+  object-fit: cover;
+  z-index: 1;
+  height: 190px;
+  width: 190px;
+  margin-bottom: 1.5rem;
+}
+
+.m-intro-container {
+  height: 100%;
+  margin-top: -12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.m-intro-text {
+  margin-top: -1rem;
+}
+
+.m-intro-text h1 {
+  font-weight: bold;
+  text-align: right;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/*ABOUT*/
+
+.m-about {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  background-color: rgba(251, 251, 255, 0.3);
+  background-image: url("../img/border.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.m-about-text-box {
+  padding: 3rem 2rem;
+}
+
+.m-slide-in {
+  animation: slide-up 2s;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0.2;
+    transform: translate(0, 200px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/*SKILLS*/
+.m-skills {
+  height: 90vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(216, 216, 216);
+}
+
+/*PROGRESS BARS*/
+.m-progress-bars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.m-progress-bar-1,
+.m-progress-bar-2,
+.m-progress-bar-3,
+.m-progress-bar-4 {
+  position: relative;
+  width: 300px;
+  height: 3em;
+  background-color: #262626;
+  border-radius: 1.5em;
+  color: white;
+}
+
+.m-progress-bar-1::before,
+.m-progress-bar-2::before,
+.m-progress-bar-3::before,
+.m-progress-bar-4::before {
+  content: attr(data-label);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: calc(0 * 1%);
+  min-width: 2rem;
+  max-width: calc(100% - 1em);
+  background-color: #767973;
+  border-radius: 1em;
+  padding: 1em;
+  /*old backround color #34626c*/
+}
+
+.animation1::before {
+  animation: bar1 4s forwards;
+  animation-delay: 0.3s;
+}
+
+.animation2::before {
+  animation: bar2 4s forwards;
+  animation-delay: 1s;
+}
+
+.animation3::before {
+  animation: bar3 4s forwards;
+  animation-delay: 2s;
+}
+
+.animation4::before {
+  animation: bar4 4s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes bar1 {
+  100% {
+    width: 90%;
+  }
+}
+
+@keyframes bar2 {
+  100% {
+    width: 40%;
+  }
+}
+
+@keyframes bar3 {
+  100% {
+    width: 60%;
+  }
+}
+
+@keyframes bar4 {
+  100% {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .m-title {
+    font-size: 30px;
+  }
+
+  .m-intro-container {
+    margin-top: -8rem;
+  }
+
+  .m-about {
+    padding: 2rem 14rem;
+  }
+
+  .m-progress-bar-1,
+  .m-progress-bar-2,
+  .m-progress-bar-3,
+  .m-progress-bar-4 {
+    width: 600px;
+    height: 3em;
+  }
+
+  .m-progress-bars {
+    margin-top: 2rem;
+  }
+
+  .m-about-title::before {
+    left: 35%;
+    bottom: 0;
+    right: 0;
+    top: 32%;
+    height: 1px;
+    width: 30%; /* or 100px */
+  }
+}

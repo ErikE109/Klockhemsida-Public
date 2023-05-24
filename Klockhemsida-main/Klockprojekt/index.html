@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/vue@3" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="script.js" defer></script>
+    <script src="slideshow.js" defer></script>
+    <title>Watch Out</title>
+  </head>
+  <body onload="showSlides(1)">
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./img/logga-removebg-preview1.png" alt="logo" />
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="customers.html" class="nav-link">Our Customers</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#aboutUs-h2" class="nav-link" id="nav-about-us"
+              >About Us</a
+            >
+            <ul class="submenu">
+              <li class="sub">
+                <a href="./michelle/michelle.html" class="sub-link">Michelle</a>
+              </li>
+              <li class="sub">
+                <a href="erik.html" class="sub-link"
+                  >Erik <span class="utfyllnad">...</span></a
+                >
+              </li>
+              <li class="sub">
+                <a href="lindaE.html" class="sub-link">Linda E.</a>
+              </li>
+              <li class="sub">
+                <a href="lindaR.html" class="sub-link">Linda R.</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="mobile-menu">
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- SLIDESHOW -->
+    <div class="main-container">
+      <h1><span class="reveal1">Watch Out</span></h1>
+      <div>
+        <p><span class="reveal1">For A Timeless Design</span></p>
+      </div>
+      <div class="scrolldown-wrapper">
+        <div class="scrolldown">
+          <svg height="30" width="10">
+            <circle class="scrolldown-p1" cx="5" cy="15" r="2" />
+            <circle class="scrolldown-p2" cx="5" cy="15" r="2" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-main">
+      <div class="slide-text">
+        <div>
+          <h4 class="slide-h4">100% AUTHENTIC TIMEPIECES</h4>
+          <h3 class="slide-h3">
+            Discover a Unique Wristwatch to Match Your Personality
+          </h3>
+        </div>
+        <div class="shop-now-div-btn">
+          <a class="shop-now-button" href="shop.html">Shop Now</a>
+        </div>
+      </div>
+
+      <div class="slideshow-container">
+        <!-- Pictures included in slideshow -->
+        <div class="slide-image">
+          <img
+            src="./img/angelo-pantazis-eHSx4QMqw7g-unsplash.jpg"
+            alt="Image"
+          />
+        </div>
+
+        <div class="slide-image">
+          <img src="./img/isabel-garza-wQbHY0M-YOk-unsplash.jpg" alt="Image" />
+        </div>
+
+        <div class="slide-image">
+          <img src="./img/brigitte-tohm-j8C66j15nAk-unsplash.jpg" alt="Image" />
+        </div>
+
+        <div class="slide-image">
+          <img src="./img/jorg-helberg-JyICT_Cnbec-unsplash.jpg" alt="Image" />
+        </div>
+
+        <div class="slide-image">
+          <img
+            src="./img/jan-de-keijzer-gSKQnv55TGA-unsplash.jpg"
+            alt="Image"
+          />
+        </div>
+
+        <!-- Slideshow navigation 
+      navigate through the slideshow with arrows "< >"-->
+        <a class="prev" onclick="nextSlide(-1)">❮</a>
+        <a class="next" onclick="nextSlide(1)">❯</a>
+      </div>
+    </div>
+
+    <!--ABOUT US -->
+
+    <div class="aboutUs-container">
+      <div class="aboutUs-heading"><h2 id="aboutUs-h2">About Us</h2></div>
+
+      <div class="aboutUs-para">
+        <p class="aboutUs-text">
+          We are a small team consisting of four people with a shared dream of
+          making the best watches available. We are not only a watch
+          manufacturer but also an experienced and skilled group who can work
+          creatively together to produce the items and enjoy solving the
+          challenges and problems.
+        </p>
+      </div>
+    </div>
+
+    <div class="ourPeople-container">
+      <div class="ourPeople-heading">
+        <h2 class="ourPeople-h2">
+          <span class="meet hidden">Meet</span>
+          <span class="text-ourPeople hidden">Our Team</span>
+        </h2>
+      </div>
+
+      <div class="ourPeoplePictureContainer">
+        <div class="ourPeoplePicture">
+          <div class="myPicMichelle">
+            <img src="img/michelle1.png" alt="" />
+          </div>
+          <div class="image-text">
+            <h2 class="name-h2">Michelle</h2>
+            <h4 class="image-h4">Chief Technology</h4>
+            <p>
+              My role here at the company is that I am man's best friend, a
+              faithful companion who loves watches. Click down below if you want
+              to know more.
+            </p>
+
+            <div class="readMoreButton">
+              <a href="./michelle/michelle.html" class="button">READ MORE ></a>
+            </div>
+          </div>
+        </div>
+        <div class="ourPeoplePicture">
+          <div class="myPicErik">
+            <img class="imgErik" src="img/ErikE1.png" alt="" />
+          </div>
+          <div class="image-text">
+            <h2 class="name-h2">Erik</h2>
+            <h4 class="image-h4">Master Horologist</h4>
+            <p>
+              I support the team with a long lifetime experince and scientific
+              knowledge of the horology field to the team.
+            </p>
+
+            <div class="readMoreButton">
+              <a href="erik.html" class="button">READ MORE ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ourPeoplePicture">
+          <div class="myPicLindaE">
+            <img class="imgLindaE" src="img/LindaE1.png" alt="" />
+          </div>
+          <div class="image-text image-text-lindae">
+            <h2 class="name-h2">Linda E.</h2>
+            <h4 class="image-h4">Master of Time</h4>
+            <p>
+              My contribution to the work we are doing in this team is a kind of
+              knowledge that is still a mystery to humankind. Click down below
+              if you want to know more.
+            </p>
+            <div class="readMoreButton">
+              <a href="lindaE.html" class="button">READ MORE ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ourPeoplePicture">
+          <div class="myPicLindaR">
+            <img class="imgLindaR" src="img/LindaR1.png" alt="" />
+          </div>
+          <div class="image-text">
+            <h2 class="name-h2">Linda R.</h2>
+            <h4 class="image-h4">Intricate gear designer</h4>
+            <p>
+              I'm the newest and smallest member of the team. I work tirelessly
+              day and night to make the perfect watch. Click down below if you
+              want to know more.
+            </p>
+            <div class="readMoreButton">
+              <a href="lindaR.html" class="button">READ MORE ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-companyInfo">
+          <h1>Watch Out</h1>
+          <p>Klockmakargatan 12</p>
+          <p>701 11 Örebro</p>
+          <p>SWEDEN</p>
+        </div>
+        <div class="media-links">
+          <h2 id="footer-h2">Connect With Us</h2>
+          <span class="link"
+            ><a href="https://twitter.com/"
+              ><img
+                class="media-img"
+                src="img/icons8-twitter-100.png"
+                alt="twitterlink"
+            /></a>
+          </span>
+
+          <span class="link"
+            ><a href="https://www.facebook.com/"
+              ><img
+                class="media-img"
+                src="img/icons8-facebook-100.png"
+                alt="facebooklink"
+            /></a>
+          </span>
+
+          <span class="link"
+            ><a href="https://www.instagram.com/"
+              ><img
+                class="media-img"
+                src="img/icons8-instagram-100.png"
+                alt="instagramlink"
+            /></a>
+          </span>
+
+          <span class="link"
+            ><a href="https://www.linkedin.com/"
+              ><img
+                class="media-img"
+                src="img/icons8-linkedin-100.png"
+                alt="linkedinlink"
+            /></a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

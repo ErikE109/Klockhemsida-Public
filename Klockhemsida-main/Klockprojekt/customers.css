@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  height: 65%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+#heading-customers h2{
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+  margin: 0 5%;
+  border-radius: 8px;
+}
+
+#intro-customers {
+  width: 90%;
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color:rgb(216, 216, 216);
+  border-radius: 8px;
+}
+
+#intro-customers h2 {
+font-weight: 400;
+}
+
+.company-div {
+  text-align: start;
+  padding: 2rem;
+  width: 20%;
+}
+.company-catchPhrase {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    height: 100%;
+  }
+  .company-div {
+    text-align: start;
+    width: 50%;
+  }
+
+}
